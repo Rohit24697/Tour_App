@@ -131,13 +131,13 @@ class CustomBottomNavBar extends StatelessWidget {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => MainPage()));
         break;
       case 1:
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => MapPage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HotPlacePage()));
         break;
       case 2:
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ExplorePage2()));
         break;
       case 3:
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HotPlacePage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => MapPage()));
         break;
       case 4:
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HotPlacePage()));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gotour_travel_app/widgets/notification_icon.dart';
 
 import 'widgets/custom_app_bar.dart';
+import 'widgets/custom_nav_bar.dart';
 
 class HotPlacePage extends StatelessWidget {
   const HotPlacePage({super.key});
@@ -187,33 +188,7 @@ class HotPlacePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.orange, // Assuming orange is the selected color
-        unselectedItemColor: Colors.grey,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.usb_outlined, color: Colors.orange, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, color: Colors.grey, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat, color: Colors.grey, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.location_on, color: Colors.grey, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline, color: Colors.grey, size: 28),
-            label: '',
-          ),
-        ],
-      ),
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 1),
     );
   }
 }

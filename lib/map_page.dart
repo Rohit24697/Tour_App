@@ -110,7 +110,7 @@ class MapPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 1),
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 3),
     );
   }
 }

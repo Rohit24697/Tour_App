@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'tour_details_page.dart';
 import 'widgets/custom_nav_bar.dart';
 import 'widgets/explore_page_my_location_widget.dart';
 
@@ -91,33 +92,39 @@ class ExplorePage1 extends StatelessWidget {
 
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  ExplorePageMyLocationWidget(
-                    screenHeight: screenHeight,
-                    screenWidth: screenWidth,
-                    title: "Abserian a edlcain",
-                    description:
-                    'Portugal there is so much more to discover, Read about the Azores new wave of eco travel..! ',
-                    location: "Sismbra, Libson",
-                    imageUrl:
-                    "https://s3-alpha-sig.figma.com/img/3ca5/deff/4cbf03037199187e999fe933641ae322?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UUuDR2EiRAaN93wmeop6rum9RLqXYPXXZ2ozgTDmhQdjt4fuQBgvHtEd8-MhbCvDRGCkCZxDsC6b-JACI5NYaksDyY5ehfeEPUmS2SIFuLtcKe3au2WoI0aAEr2PlkU92cK2s5nKbMF7zeyFeIj~4p9mZMVE2giUJAFWxoX8Acd0awhjQu39~fAqqfOgw7zkqFXTEpG97BM3TVxmHo5KqyjtvRlsEsiPyXggSNG53yrhO4Zhp-uqeH03OHlpVmE5UvyfhxkcEPLsjalaySwpzeXYbS51vDUyLF0GwqZna1AnCycWl2qLB4v9eDEmT-WtT1Q2jSl~H8m1ZLZZm1k8mw__",
-                    price: '3000',
-                  ),
-                  SizedBox(width: screenWidth * 0.04),
-                  ExplorePageMyLocationWidget(
-                    screenHeight: screenHeight,
-                    screenWidth: screenWidth,
-                    title: "Vietnam",
-                    price: "4000",
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => TourDetailPage()));
+                },
+                child: Row(
+                  children: [
+                    ExplorePageMyLocationWidget(
+                      screenHeight: screenHeight,
+                      screenWidth: screenWidth,
+                      title: "Abserian a edlcain",
+                      description:
+                      'Portugal there is so much more to discover, Read about the Azores new wave of eco travel..! ',
+                      location: "Sismbra, Libson",
+                      imageUrl:
+                      "https://s3-alpha-sig.figma.com/img/3ca5/deff/4cbf03037199187e999fe933641ae322?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UUuDR2EiRAaN93wmeop6rum9RLqXYPXXZ2ozgTDmhQdjt4fuQBgvHtEd8-MhbCvDRGCkCZxDsC6b-JACI5NYaksDyY5ehfeEPUmS2SIFuLtcKe3au2WoI0aAEr2PlkU92cK2s5nKbMF7zeyFeIj~4p9mZMVE2giUJAFWxoX8Acd0awhjQu39~fAqqfOgw7zkqFXTEpG97BM3TVxmHo5KqyjtvRlsEsiPyXggSNG53yrhO4Zhp-uqeH03OHlpVmE5UvyfhxkcEPLsjalaySwpzeXYbS51vDUyLF0GwqZna1AnCycWl2qLB4v9eDEmT-WtT1Q2jSl~H8m1ZLZZm1k8mw__",
+                      price: '3000',
+                    ),
+                    SizedBox(width: screenWidth * 0.04),
+                    ExplorePageMyLocationWidget(
+                      screenHeight: screenHeight,
+                      screenWidth: screenWidth,
+                      title: "Vietnam",
+                      price: "4000",
 
-                    description:
-                    'Portugal there is so much more to discover, Read about the Azores new wave of eco travel..!',
-                    location: "Rondom, Vietnam",
-                    imageUrl:
-                    "https://s3-alpha-sig.figma.com/img/d37e/3965/1512f0aea6c5fe8f5771733be71d9b99?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=eCHQjJZgzo-T-iKncfmU--zmcnBnirQ6yWZem04fV3knWbr5M~saYIF-bsE6-vfSJU1nGlAF8DBYBjddbsM~GduUVQqGsd~6UWwdix0Ae1sK-ft74Z7NJ4sKKIxgsDA5pNi5e0Q3sPsUmPRx1p9YycPZENnlH8pqMdmJLYBtoeEmX8u1QiKAY58EOsHY7nAu0XUWatchfBVrHWf8tQ0B2zfnQsXR5V7mKhqAMjkS~OeTvu3ANZKbDts0elVvlELMWv0Ht-InG2Yv0vB-hN6tzebfz-BGGKZh-0E6lV0CQv-z7M~-IN~Em8Hj-WsJMK2hJinbShHWs7GqHppuuPh0jA__",
-                  ),
-                ],
+                      description:
+                      'Portugal there is so much more to discover, Read about the Azores new wave of eco travel..!',
+                      location: "Rondom, Vietnam",
+                      imageUrl:
+                      "https://s3-alpha-sig.figma.com/img/d37e/3965/1512f0aea6c5fe8f5771733be71d9b99?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=eCHQjJZgzo-T-iKncfmU--zmcnBnirQ6yWZem04fV3knWbr5M~saYIF-bsE6-vfSJU1nGlAF8DBYBjddbsM~GduUVQqGsd~6UWwdix0Ae1sK-ft74Z7NJ4sKKIxgsDA5pNi5e0Q3sPsUmPRx1p9YycPZENnlH8pqMdmJLYBtoeEmX8u1QiKAY58EOsHY7nAu0XUWatchfBVrHWf8tQ0B2zfnQsXR5V7mKhqAMjkS~OeTvu3ANZKbDts0elVvlELMWv0Ht-InG2Yv0vB-hN6tzebfz-BGGKZh-0E6lV0CQv-z7M~-IN~Em8Hj-WsJMK2hJinbShHWs7GqHppuuPh0jA__",
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
