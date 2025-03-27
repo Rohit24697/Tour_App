@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gotour_travel_app/widgets/notification_icon.dart';
+
+import 'widgets/custom_app_bar.dart';
 
 class HotPlacePage extends StatelessWidget {
   const HotPlacePage({super.key});
@@ -7,7 +10,15 @@ class HotPlacePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
+      appBar:
+      // CustomAppBar(
+      //   title: '',
+      //   leadingWidget: null,
+      //   actionWidgets: const [
+      //     NotificationIcon(),
+      //   ],
+      // ),
+      AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,

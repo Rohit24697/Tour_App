@@ -309,10 +309,16 @@
 import 'package:flutter/material.dart';
 
 import 'sign_in_page.dart';
+import 'widgets/gender_option.dart';
+import 'widgets/password_field.dart';
 
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+
+  final ValueNotifier<bool> isMaleSelected = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> isFemaleSelected = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> isTermsAccepted = ValueNotifier<bool>(false);
 
 
   @override
@@ -325,10 +331,18 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Logo
-              Image.asset(
-                'assets/logos/logo.png',
-                width: 150,
-                height: 100,
+              Stack(
+                children: [
+                  Image.asset('assets/logos/logo.png', width: 250, height: 100),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 80, left: 45),
+                    child: Text(
+                      "Enjoy your travelling",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 20),
               // Title
@@ -355,7 +369,7 @@ class SignUpScreen extends StatelessWidget {
                   // hintText: 'John Doe',
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
               // Email field
               TextField(
                 decoration: InputDecoration(
@@ -366,19 +380,47 @@ class SignUpScreen extends StatelessWidget {
                   // hintText: 'johndoe@gmail.com',
                 ),
               ),
-              const SizedBox(height: 20),
-              // Password field
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  labelText: 'Password',
-                  suffixIcon: const Icon(Icons.visibility_off),
-                ),
+              const SizedBox(height: 16),
+
+              // Gender Selection
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  genderOption("Male", isMaleSelected, isFemaleSelected),
+                  SizedBox(width: 10),
+                  genderOption("Female", isFemaleSelected, isMaleSelected),
+                ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 16),
+              passwordField("Password"),
+              SizedBox(height: 16),
+              passwordField("Confirm Password"),
+              const SizedBox(height: 16),
+              // Terms Checkbox
+              ValueListenableBuilder<bool>(
+                valueListenable: isTermsAccepted,
+                builder: (context, value, child) {
+                  return Row(
+                    children: [
+                      Checkbox(
+                        value: value,
+                        activeColor: Colors.orange,
+                        onChanged: (newValue) {
+                          isTermsAccepted.value = newValue ?? false;
+                        },
+                      ),
+                      Text("I agree and accept the "),
+                      InkWell(
+                        child: Text(
+                          "terms of use.",
+                          style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+              SizedBox(height: 10),
               // Sign Up button
               ElevatedButton(
                 onPressed: () {
@@ -400,7 +442,7 @@ class SignUpScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 8),
               // Login link
               TextButton(
                 onPressed: () {
@@ -421,55 +463,3 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
-
-
-// Widget _buildGenderOption(String gender) {
-//   return InkWell(
-//     onTap: () {
-//       setState(() {
-//         _gender = gender;
-//       });
-//     },
-//     child: Container(
-//       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-//       decoration: BoxDecoration(
-//         border: Border.all(
-//           color: _gender == gender ? Colors.orange : Colors.grey.shade300,
-//         ),
-//         borderRadius: BorderRadius.circular(8),
-//       ),
-//       child: Row(
-//         mainAxisSize: MainAxisSize.min,
-//         children: [
-//           Text(
-//             gender,
-//             style: TextStyle(fontSize: 16),
-//           ),
-//           SizedBox(width: 8),
-//           _gender == gender
-//               ? Container(
-//             padding: EdgeInsets.all(2),
-//             decoration: BoxDecoration(
-//               color: Colors.orange.withOpacity(0.2),
-//               borderRadius: BorderRadius.circular(4),
-//             ),
-//             child: Icon(
-//               Icons.check,
-//               size: 16,
-//               color: Colors.orange,
-//             ),
-//           )
-//               : Container(
-//             width: 16,
-//             height: 16,
-//             decoration: BoxDecoration(
-//               border: Border.all(color: Colors.grey.shade400),
-//               borderRadius: BorderRadius.circular(4),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   );
-// }
-// }

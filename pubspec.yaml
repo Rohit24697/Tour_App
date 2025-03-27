@@ -68,6 +68,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/logos/
+    - assets/icons/
     - assets/icons/onboardingpage1/
     - assets/icons/onboardingpage2/
     - assets/icons/onboardingpage3/

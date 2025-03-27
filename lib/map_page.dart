@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'explore_page.dart';
+import 'explore_page2.dart';
 import 'widgets/build_card.dart';
+import 'widgets/custom_app_bar.dart';
+import 'widgets/custom_nav_bar.dart';
+import 'widgets/notification_icon.dart';
+import 'widgets/profile_avatar.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -8,7 +12,7 @@ class MapPage extends StatelessWidget {
   void navigateToUsbPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ExplorePage()),
+      MaterialPageRoute(builder: (context) => const ExplorePage2()),
     );
   }
 
@@ -16,56 +20,11 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text('Map',
-            style: TextStyle(color: Colors.black, fontSize: 24)),
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.deepOrangeAccent.shade100,
-                radius: 24, // Adjust the radius as needed
-                child: ClipOval(
-                  child: Image.network(
-                    'https://s3-alpha-sig.figma.com/img/00be/4300/0fd0830abab1c4eb77183a6676dc86c2?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=N7lq16Bg4zmgbyu5BMA~qu02ryhK~4sFLbuzL7SycKnByPIh~Cq3o7ATrHttD2aqpoCoX2VDrUSfo-TBqQkdDQ80NrVEwXCErLrY2mELfHFb8Wub7f4Y3VkRZpIcyVPkLWApDo4Cfu4hANRJbAyvXCBOLXXEFaF7bKWnTK9cAvrI6EWu8CDhD-J7WPN6c61WY44RlnYi9AGFAh~c6TvNUI0Dg~oXO3XsjkS~aPi6ZOu7S5YrpHkOyEdUS06Z2-t2GS6iTT038OrrSe8yFUAGq5VE6zjXCIjNl~3RXQpDfrimVhOZ2tY2Hlehuzpo~aAeK53ortZrwSOnojNkLZ-SKg__',
-                    fit: BoxFit.cover,
-                    width: 48, // 2 * radius
-                    height: 48,
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: CircleAvatar(
-                  backgroundColor: Colors.orange,
-                  radius: 6,
-                ),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          Stack(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.notifications, color: Colors.black),
-                onPressed: () {},
-              ),
-              Positioned(
-                top: 8,
-                right: 8,
-                child: CircleAvatar(
-                  backgroundColor: Colors.orange,
-                  radius: 6,
-                ),
-              ),
-            ],
-          ),
+      appBar: CustomAppBar(
+        title: 'Map',
+        leadingWidget: const ProfileAvatar(),
+        actionWidgets: const [
+          NotificationIcon(),
         ],
       ),
       body: SingleChildScrollView(
@@ -151,39 +110,7 @@ class MapPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          if (index == 0) {
-            navigateToUsbPage(context); // Navigate on USB icon tap
-          }
-        },
-        selectedItemColor: Colors.orange,
-        // Assuming orange is the selected color
-        unselectedItemColor: Colors.grey,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.usb_outlined, color: Colors.grey, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, color: Colors.grey, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat, color: Colors.grey, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.location_on, color: Colors.orange, size: 28),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline, color: Colors.grey, size: 28),
-            label: '',
-          ),
-        ],
-      ),
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 1),
     );
   }
 }

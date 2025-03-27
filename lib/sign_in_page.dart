@@ -222,9 +222,9 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 
+import 'main_page.dart';
 import 'map_page.dart';
 import 'sign_up_page.dart';
 
@@ -236,142 +236,148 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 30, right: 30, top: 50,),
+          padding: const EdgeInsets.only(
+            left: 30,
+            right: 30,
+            top: 50,
+          ),
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-          // Logo
-          Stack(
-          children: [
-          Image.asset('assets/logos/logo.png', width: 250, height: 100),
-
-          Padding(
-            padding: const EdgeInsets.only(top: 80, left: 40),
-            child: Text(
-              "Enjoy your travelling",
-              style: TextStyle(fontSize: 15),
-            ),
-          ),
-          ],
-        ),
-
-        const SizedBox(height: 60),
-
-        // Title
-        const Text(
-          'Log In',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-
-        const SizedBox(height: 30),
-
-        // Email field
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            labelText: 'Email',
-            // hintText: 'johndoe@gmail.com',
-          ),
-        ),
-        const SizedBox(height: 20),
-        // Password field
-        TextField(
-          obscureText: true,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            labelText: 'Password',
-            suffixIcon: const Icon(Icons.visibility_off),
-          ),
-        ),
-        const SizedBox(height: 10),
-
-        // Forgot Password link
-        Align(
-          alignment: Alignment.center,
-          child: TextButton(
-            onPressed: () {
-              // Add forgot password logic here
-            },
-            child: const Text(
-              'Forgot Password?',
-              style: TextStyle(color: Colors.orange),
-            ),
-          ),
-        ),
-
-        const SizedBox(height: 20),
-
-        // Login button
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MapPage()),
-            );
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.orange,
-            minimumSize: const Size(double.infinity, 50),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          child: const Text(
-            'Log In',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        const SizedBox(height: 10),
-        Text('Or',style: TextStyle(fontSize: 18.0),),
-        SizedBox(height: 10),
-
-                ElevatedButton.icon(
-                  onPressed: () {
-                    // Uncomment the below code to navigate to the MapPage
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const MapPage()),
-                    // );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    // backgroundColor: Colors,
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Logo
+              Stack(
+                children: [
+                  Image.asset('assets/logos/logo.png', width: 250, height: 100),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 80, left: 45),
+                    child: Text(
+                      "Enjoy your travelling",
+                      style: TextStyle(fontSize: 15),
                     ),
                   ),
-                  icon: Image.asset(
-                    'assets/logos/google-logo.png',
-                    height: 24,
+                ],
+              ),
+
+              const SizedBox(height: 60),
+
+              // Title
+              const Text(
+                'Log In',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+
+              const SizedBox(height: 30),
+
+              // Email field
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  label: const Text(
-                    'Log In With Google',
-                    style: TextStyle(color: Colors.black),
+                  labelText: 'Email',
+                  // hintText: 'johndoe@gmail.com',
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Password field
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Password',
+                  suffixIcon: const Icon(Icons.visibility_off),
+                ),
+              ),
+              const SizedBox(height: 10),
+
+              // Forgot Password link
+              Align(
+                alignment: Alignment.center,
+                child: TextButton(
+                  onPressed: () {
+                    // Add forgot password logic here
+                  },
+                  child: const Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Colors.orange),
                   ),
                 ),
+              ),
 
-      // Sign Up link
-      TextButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const SignUpScreen()),
-          );
-        },
-        child: const Text(
-          'Sign Up Here',
-          style: TextStyle(color: Colors.orange),
+              const SizedBox(height: 20),
+
+              // Login button
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainPage()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text(
+                  'Log In',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Or',
+                style: TextStyle(fontSize: 18.0),
+              ),
+              SizedBox(height: 10),
+
+              ElevatedButton.icon(
+                onPressed: () {
+                  // Uncomment the below code to navigate to the MapPage
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const MapPage()),
+                  // );
+                },
+                style: ElevatedButton.styleFrom(
+                  // backgroundColor: Colors,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                icon: Image.asset(
+                  'assets/logos/google-logo.png',
+                  height: 24,
+                ),
+                label: const Text(
+                  'Log In With Google',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+
+              // Sign Up link
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SignUpScreen()),
+                  );
+                },
+                child: const Text(
+                  'Sign Up Here',
+                  style: TextStyle(color: Colors.orange),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      ],
-    ),)
-    ,
-    )
-    ,
     );
   }
 }
