@@ -117,6 +117,7 @@ import 'package:gotour_travel_app/explore_page2.dart';
 import 'package:gotour_travel_app/hot_place_page.dart';
 import 'package:gotour_travel_app/main_page.dart';
 import 'package:gotour_travel_app/map_page.dart';
+import 'package:gotour_travel_app/profile_page.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -140,7 +141,7 @@ class CustomBottomNavBar extends StatelessWidget {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => MapPage()));
         break;
       case 4:
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HotPlacePage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ProfilePage()));
         break;
     }
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'hot_place_page.dart';
+import 'profile_page.dart';
 import 'widgets/custom_nav_bar.dart';
 
 
